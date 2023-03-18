@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<script src="https://kit.fontawesome.com/9f1884d6ef.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/login.css">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="login-container">	
+	<div class="login-logo">
+		<p>HABBIT<br>RABBIT</p>		
+	</div>
+	
+	<div class="error-msg">	
+		<span th:text="${error}"></span>
+	</div>
+	
+	<div class="login-form">			
+		<form action="/login" method="post">		
+			<div class="input">
+		        <input type="email" id="email" name="email" placeholder="Email" required="required">
+		    </div>
+		    
+		    <div class="input">
+		    	<input type="password" id="password" name="password" placeholder="Pasword" required="required">
+		    </div>
+		      
+		    <div class="input-btn">
+		    	<button class="login-btn" type="submit">Login</button>
+		    </div>
+		</form>
+		
+	</div>
+				
+</div>	
+		
+		
+		
+
+	
+	
+	<!-- Modal Trigger Button -->
+	<button id="modal-trigger"> Sign Up </button>
+	
+		<!-- The Modal -->
+		<div id="modal" class="modal">
+		  <div class="modal-content">
+		  <span class="close">&times;</span>
+		  <p> Create an Account!</p>
+		  
+		   	<form action="/signup" method="post">
+      <div>
+        <input maxlength="12" type="text" id="name" name="userName" placeholder="Enter your name" pattern="[a-zA-Z ]+" required>
+      </div>
+      <div>
+        <input type="email" id="email" name="userEmail" placeholder="Enter your email address" required>
+      </div>
+      <div>
+        <input type="password" id="password" name="userPassword" placeholder="Enter your password" required>
+      </div>
+      <br>
+      <button class="m-btn" type="submit">Register Me!</button>
+    </form>
+		  </div>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<script src="modal.js"></script>
+	
+</body>
+</html>

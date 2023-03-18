@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User Routine</title>
+	<script src="https://kit.fontawesome.com/9f1884d6ef.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/routine.css">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<!-- Header Start -->
+	<div class="header"></div>
+	<!-- Header End -->
+	
+	<!-- Top Start --> 
+	<div class="top-section">			
+		<div class="routine-title" th:text="${routine.routineName}"></div>
+				
+		<div class="routine-edit">				
+		<button id="modal-trigger-2"> <i class="fa-solid fa-gear" style="color: #4974a5; font-size: 4.8vmin;"></i> </button>
+			
+		</div>
+			
+		<div class="routine-del">				
+			<form method="post" th:action="@{/routines/{id}/delete(id=${routine.routineId})}">
+				<button type="submit"><i class="fa-solid fa-trash" style="color: #4974a5; font-size: 4.8vmin;"></i></button>
+			</form>					
+		</div>	
+				
+		<div class="routine-desc" th:text="${routine.routineDescription}"></div> 						
+	</div> 
+	<!-- Top End -->	
+	
+	<!-- Mid Start -->
+	<div class="middle-section">
+			
+	<div class="error-msg">	
+			<span th:text="${param.error}"></span>
+		</div>	
+		
+		<br>
+		
+		<div th:each="task : ${tasks}">
+			<div class="task-card">		
+				<div class="task-title"> <p th:text="${task.taskName}"></p></div>
+				<div class="task-desc"> <p th:text="${task.taskDescription}"></p></div>
+				<div class="task-duration"> <p class="fake-btn" th:text="${task.taskDuration} + m"></p> </div>
+				<div class="task-status"> <p th:text="${task.taskStatus}"></p></div>
+				<div class="task-btn">
+				<form method="post" th:action="@{/routines/{id}/deletetask/{taskId}(id=${routine.routineId}, taskId=${task.taskId})}">
+		            <input type="hidden" name="taskId" th:value="${task.taskId}" />
+		            <button type="submit"><i class="fa-solid fa-trash" style="color: #4974a5;"></i></button>
+     		  	</form>
+     		  		
+     		  	</div>
+			</div>			
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+				
+				
+      
+	
+	
+	
+	<!-- Mid End -->
+		
+
+		
+	
+					
+		
+		
+		
+		
+<!-- First Modal Trigger Button -->
+<button id="modal-trigger"> <i class="fa-solid fa-plus" style="color: #4974a5; font-size: 5.5vmin;"></i> </button>
+
+<!-- Second Modal Trigger Button -->
+<button id="modal-trigger-2"> <i class="fa-solid fa-pencil" style="color: #4974a5; font-size: 5.5vmin;"></i> </button>
+
+<!-- First Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Add a New Task!</p>
+    <form method="post" th:action="@{/routines/{id}/addtask(id=${routine.routineId})}">
+      <div class="form-group">
+        <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Task Name" required="required" maxlength="20"/>
+      </div>
+      <br>
+      <div class="form-group">
+        <textarea class="form-control" id="taskDescription" name="taskDescription" rows="3" placeholder="Description" maxlength="50" required="required"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <input type="number" min="1" max="999" class="form-control" id="taskDuration" name="taskDuration" placeholder="Duration (min)" required="required" />
+      </div>
+      <br>
+      <button type="submit" class="m-btn">Add Task</button>
+    </form>
+  </div>
+</div>
+
+<!-- Second Modal -->
+<div id="modal-2" class="modal">
+  <div class="modal-content">
+    <span class="close-2">&times;</span>
+    <p>Edit Routine</p>
+    <form method="post" th:action="@{/routines/{id}/edit(id=${routine.routineId})}">
+      <div class="form-group">
+        <input type="text" class="form-control" id="routineName" name="routineName" placeholder="Name" maxlength="20" required th:value="${routine.routineName}">
+      </div>
+      <br>
+      <div class="form-group">
+        <textarea class="form-control" id="routineDescription" name="routineDescription" placeholder="Description" rows="3" maxlength="50" required th:text="${routine.routineDescription}"></textarea>
+      </div>
+      <br>
+      <button type="submit" class="m-btn">Save</button>
+    </form>
+  </div>
+</div>
+
+
+	
+	
+	
+	<div class="btm-section">
+		<nav class="navbar">				
+			<a href="/dashboard"><i class="fa-solid fa-house" style="color: #4974a5; font-size: 5.5vmin;"></i></a>
+			<a href="#"><i class="fa-solid fa-earth-americas" style="color: #4974a5; font-size: 5.5vmin;"></i></a>
+			<a href="/logout"><i class="fa-solid fa-user" style="color: #4974a5; font-size: 5.5vmin;"></i></a>			
+		</nav>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<script>
+	// modals
+	const modal = document.getElementById("modal");
+	const trigger = document.getElementById("modal-trigger");		
+	const modal2 = document.getElementById("modal-2");
+	const trigger2 = document.getElementById("modal-trigger-2");		
+	const closeBtn = modal.querySelector(".close");
+	const closeBtn2 = modal2.querySelector(".close-2");		
+	
+	trigger.addEventListener("click", function() {
+	  modal.style.display = "block";
+	});		
+	trigger2.addEventListener("click", function() {
+	  modal2.style.display = "block";
+	});		
+	
+	closeBtn.addEventListener("click", function() {
+	  modal.style.display = "none";
+	});		
+	closeBtn2.addEventListener("click", function() {
+	  modal2.style.display = "none";
+	});
+			
+	window.addEventListener("click", function(event) {
+	  if (event.target === modal) {
+	    modal.style.display = "none";
+	  } else if (event.target === modal2) {
+	    modal2.style.display = "none";
+	  }
+	});
+
+	
+	//timer
+	let click = 0;
+	let intervalId;
+
+	const taskCards = document.querySelectorAll(".task-card");
+	taskCards.forEach(function(taskCard) {	 
+	  const durationElem = taskCard.querySelector(".task-duration p");
+	  const statusElem = taskCard.querySelector(".task-status p");
+	  const duration = parseInt(durationElem.textContent);
+
+	  const button = taskCard.querySelector(".fake-btn");
+	  button.addEventListener("click", function() {
+	    click ++;
+	    if (click === 2){
+	      statusElem.textContent = "reset";
+	      click = 0;
+	      clearInterval(intervalId);
+	    } else {
+	      let timer = duration * 60;
+	      let minutes, seconds;
+	      intervalId = setInterval(function() {
+	        minutes = Math.floor(timer / 60);
+	        seconds = timer % 60;	      
+	        durationElem.textContent = minutes + "m " + seconds + "s";
+	       
+	        if (timer % 60 === 0) {
+	          const minutesRemaining = timer / 60;
+	          statusElem.textContent = minutesRemaining + " min ";
+	        }
+
+	        timer--;
+	       
+	        if (timer < 0) {
+	          clearInterval(intervalId);
+	          durationElem.textContent = duration + "m";
+	          statusElem.textContent = "Completed";
+	          statusElem.style.backgroundColor = '#4974a5';
+	        }
+	      }, 1000);
+	    }
+	  });
+	});
+
+	
+	
+	</script>
+	
+</body>
+</html>

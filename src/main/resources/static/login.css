@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Rubik+80s+Fade&family=Rubik+Vinyl&display=swap');
+
+body {	
+	margin: 0;
+	padding: 0;
+}
+
+
+.login-container {
+	height:100vh;
+	width: 100vw;	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-content: center;
+ 	align-items: center;	
+ 	background-image: url("/backgr.png");
+  	background-size: cover;
+  	background-position-x: 50%;
+ 	background-position-y: 50%;
+  	background-repeat: no-repeat;  	
+  	font-family: 'Fredoka One', cursive;  	
+  	font-size: 10vmin;
+}
+
+.login-logo{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+ 	align-items: center;	
+ 	margin-top: 3vh;
+ 	color: #4974a5;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+ 	align-items: center;	
+ 	margin-bottom: 16vh; 	
+ 	font-size: 3vmin;
+}
+
+.login-btn {
+	float: center;  	
+	background-color: transparent; 
+	border:none;
+	font-family: 'Fredoka One', cursive;
+	color: pink;
+  	font-size: 4.5vmin;
+  	margin-top: 2vmin;
+}
+
+.input {
+	height: 3.5vh;
+	display: flex;
+	justify-content: center;
+	align-content: center;	
+	margin-bottom: 1vmin;
+}
+
+
+.input-btn {	
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;	
+}	
+
+.error-msg {
+	margin-top: 65vmin;
+	font-family: 'Nova Mono', monospace;
+	color: pink;
+  	font-size: 3vmin;
+  	background-color: rgba(255, 255, 255, 0.2); 
+  	padding: 1.2vmin;
+  	border-radius: 0.5vmin;
+}
+
+
+
+/*  Modal */
+.modal {
+	display: none;
+	position: fixed; 
+	z-index: 3; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Modal Content */
+.modal-content {	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+ 	align-items: center;
+	background-color: #dbcdbb;
+	margin: 10% auto; 
+	padding: 5vmin;
+	border: 1px solid #eee;
+	width: 80%; 	
+	font-family: 'Fredoka One', cursive;  
+	color: #4974a5;	
+}
+
+.modal-content textarea, input {
+	width: 50vw;
+	border: none; 
+	background-color: #eee; 
+}
+
+.modal-content textarea:focus, input:focus {
+  outline: none;
+}
+
+.modal-btn{
+	display: block;
+  	margin: 0 auto;
+  	height: 8vmin;
+  	width: 20vmin;
+	background-color: transparent; 
+	border-radius: 2vmin;
+ 	cursor: pointer;
+ 	font-family: 'Fredoka One', cursive;  
+ 	font-size: 3.5vmin;
+ 	font-weight: bold;	
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 8vmin;
+  font-weight: bold;
+ font-family: 'Fredoka One', cursive;  
+	
+}
+
+.close:hover,
+.close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modal-trigger {
+  position: fixed;
+  bottom: 10vh;
+  right: 30vw;
+  z-index: 2;
+  
+  	height: 20vmin;
+  	width: 20vmin;
+	background-color: fcf8f8; 
+	border:none;
+	height: 4.5vh;
+	width: 40vw;
+	border-radius: 2vmin;
+ 	cursor: pointer;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+ 	font-family: 'Fredoka One', cursive;
+ 	color: #4974a5;
+}
+
+.m-btn {
+	margin-top: 2vmin;
+	margin :auto;
+	background-color: #e2bfb9; 
+	border-radius: 2vmin;
+	border:solid 0.1vmin white;
+	font-family: 'Fredoka One', cursive;  
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;	
+	color: #4974a5;
+	height: 3vh;
+	width: 26vw;
+}
+
+
+

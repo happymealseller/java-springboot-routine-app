@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>User Dashboard</title>
+	<script src="https://kit.fontawesome.com/9f1884d6ef.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/dashboard.css">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<!-- Header Start -->
+	<div class="header"></div>
+	<!-- Header End -->
+	
+	<!-- Top Start -->
+	<div class="top-section">			
+		<div class="date">			
+			<p>Hi, <span th:text="${user.userName}"></span>!</p>
+		</div>
+		
+		<div class="image-card">		
+			<p>How are you feeling today?</p>	
+			<p>It's <span th:text="${today}"></span>. </p>
+			<p>Here is a quick read to start your day!</p>	
+			<p>Habits, like rabbits, can multiply, When nurtured with care each day, They can help you to reach the sky, And pave the way for a brighter day.</p>	
+		</div>					
+	</div> 
+	<!-- Top End -->
+	
+	<!-- Mid Start -->
+	<div class="middle-section">		
+		<div class="title-divider"> My routines </div>
+		
+		
+		
+		<br>
+		<div th:each="routine : ${routines}">
+			<a th:href="@{/routines/{id}(id=${routine.routineId})}">
+				<div class="routine-card">		
+					<div class="icon"></div>
+					<p th:text="${routine.routineName}"></p>		
+				</div>	
+			</a>
+		</div>	
+		
+			
+	</div>
+	<!-- Mid End -->
+		
+
+		
+		
+		
+		
+		
+		<!-- Modal Trigger Button -->
+		<button id="modal-trigger"> <i class="fa-solid fa-plus" style="color: #4974a5; font-size: 5.5vmin;"></i> </button>
+
+		<!-- The Modal -->
+		<div id="modal" class="modal">
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Create a New Routine!</p>
+		    <form method="post" th:action="@{/dashboard}">
+    <div class="form-group">
+        
+        <input type="text" class="form-control" id="routineName" name="routineName" placeholder="Name" maxlength="20" required>
+    </div>
+    <br>
+    <div class="form-group">
+       
+        <textarea class="form-control" id="routineDescription" name="routineDescription" placeholder="Description" rows="3" maxlength="50" required></textarea>
+    </div>
+    <br>
+    <button type="submit" class="m-btn">Add Routine</button>
+</form>
+		  </div>
+		</div>
+
+	<div class="btm-section">
+		<nav class="navbar">				
+			<a href="/dashboard"><i class="fa-solid fa-house" style="color: #4974a5; font-size: 5.5vmin;"></i></a>
+			<a href="#"><i class="fa-solid fa-earth-americas" style="color: #4974a5; font-size: 5.5vmin;"></i></a>
+			<a href="/logout"><i class="fa-solid fa-user" style="color: #4974a5; font-size: 5.5vmin;"></i></a>			
+		</nav>
+	</div>
+	
+	
+	
+	
+
+
+	
+	<script src="modal.js"></script>
+	
+	
+	
+	
+	
+</body>
+</html>

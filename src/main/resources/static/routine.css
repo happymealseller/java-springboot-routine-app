@@ -1,0 +1,401 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Nova+Mono&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap');
+
+
+
+body {	
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	width: 100vw;	
+	border-radius: 8vw;
+}
+
+
+
+.btm-section {	
+	height: 10vh;
+	width: 100vw;
+	background-color: #f5f5f5;
+	 
+	position: fixed; bottom: 0;
+	
+	display: flex;
+	justify-content: center;
+	
+	
+	
+	
+		
+}
+
+.navbar {
+	width: 90vw;
+	height: 8vh;
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+	border: 0.5vmin solid #eee;
+	border-radius: 20vw;
+	
+}
+
+
+
+.top-section {	
+	min-height: 16vh;
+	max-height: 16vh;	
+	padding: 5vmin 6vmin 9vmin 6vmin;
+	
+	
+  
+	
+	display: grid;
+  	grid-template-columns: 4fr 1fr 1fr; 
+  	grid-template-rows: 1.5fr 1fr ; 
+  	grid-template-areas:
+    "routine-title routine-edit routine-del"
+    "routine-desc routine-desc routine-desc";    
+    background-color: #f1c7c9;
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fcf8f8' fill-opacity='0.14' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+.top-section button {
+	height: 7.9vmin;
+	background-color: #f5f5f5; 
+	border: 0.5vmin solid #fcf8f8;
+	border-radius: 50%;
+ 	cursor: pointer;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+}
+
+.routine-title {
+	grid-area: routine-title; 
+	color: white;
+	font-size: 7.5vmin;
+	font-family: 'Roboto Condensed', sans-serif;  
+	display: flex;   
+	align-items: center;
+	text-transform: capitalize;
+	overflow:hidden;
+}
+
+.routine-edit {
+	grid-area: routine-edit;  
+	display: flex;  
+	justify-content: center; 
+	align-items: center;
+}
+
+.routine-del {
+	grid-area: routine-del; 
+	display: flex;   
+	justify-content: center; 
+	align-items: center;
+}
+
+.routine-desc {
+	grid-area: routine-desc; 
+	color: white;
+	font-size: 5vmin;
+	font-family: 'Inconsolata', monospace;
+	display: flex;   
+	align-items: center;
+	overflow:hidden;
+	text-transform: lowercase;
+}
+
+.middle-section {
+	min-height: 70vh;
+	max-height: 70vh;	
+	background-color: #f5f5f5;		
+	overflow-y: auto;
+	padding-bottom: 12vh;
+}
+
+
+
+
+
+
+.task-card {
+	height: 15vh;	
+	margin: 4vmin;
+	padding: 1vmin 0 1vmin 6vmin;
+	background-color: white;	
+	border: 0.5vmin solid #eee;
+	border-radius: 2vmin;
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr 1fr;
+	grid-template-rows: 1fr 1fr ; 
+	grid-template-areas:
+    "task-title task-status task-duration task-btn"
+    "task-desc task-desc task-duration task-btn" ;
+}
+
+.task-card button {
+	background-color: transparent;
+	border: none;
+}
+
+
+
+.task-title {
+	grid-area: task-title;
+	text-transform: capitalize;
+	font-family: 'Nova Mono', monospace;
+	font-size: 3.2vmin;
+	color: #4974a5;
+	display: flex; 
+	align-items: center;	
+	overflow: hidden;
+}
+
+.task-btn {
+	grid-area: task-btn; 
+	display: flex;   
+	justify-content: left; 
+	align-items: center;
+}
+
+.task-desc {
+	grid-area: task-desc; 	
+	display: flex;  
+	justify-content: left;    	
+	align-items: left;
+	overflow: hidden;
+}
+
+.task-desc p {
+	display: flex; 
+	justify-content: left;   	
+	align-items: left;
+	text-transform: lowercase;	
+	font-family: 'Inconsolata', monospace;
+	font-size: 3vmin;
+	overflow: hidden;
+}
+
+.task-duration {
+	grid-area: task-duration; 
+	display: flex;   
+	justify-content: center; 
+	align-items: center;	
+	font-size: 2.5vmin;
+}
+	
+.task-duration p {
+	height: 10vmin;
+	width:10vmin;
+	background-color: #f5f5f5; 	
+	border-radius: 50%;
+	text-transform: lowercase;	
+	font-family: 'Inconsolata', monospace;
+	font-weight: bold;
+	font-size: 2.5vmin;
+	display: flex;   	
+	justify-content: center; 
+	align-items: center;
+}
+
+.task-status {	
+	grid-area: task-status; 
+	
+	font-size: 2.5vmin;
+	display: flex;   
+	justify-content: center; 
+	align-items: center;
+	
+}
+
+.task-status p {	
+	height: 1.4vh;
+	padding: 1.2vmin;
+	background-color: #e2bfb9;	
+	border: 0.3vmin solid #fcf8f8;
+	border-radius: 10vmin;
+	text-transform: lowercase;	
+	font-family: 'Inconsolata', monospace;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.date {
+	display: flex;
+	justify-content: left;
+}
+
+.image-card {
+	display: flex;
+	justify-content: left;
+	height: 45vh;
+	border-radius:8vw;
+	background-color: grey;
+}
+
+
+.routine-card {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin: 1vh;
+	text-align: left;
+	border-radius: 20px;
+	min-height: 10vh;
+	max-height: 10vh;
+	background-color: white;	
+}
+
+
+.icon {
+	margin: 0 3vw 0 3vw;
+	width:10vw;
+	height:5vh;
+	background: radial-gradient(circle, rgba(174,191,238,1) 0%, rgba(43,138,227,1) 100%);
+	border-radius: 1.5vmin;
+}
+
+
+.error-msg {
+	display: flex;
+	justify-content: center;
+	font-family: 'Roboto Condensed', sans-serif;  
+	color: red;
+  	font-size: 3.5vmin;
+  	margin: 4vmin 0 -5vmin 0;
+}
+
+
+
+
+
+
+
+
+
+/* The Modal (background) */
+.modal, modal2 {
+	display: none;
+	position: fixed; 
+	z-index: 3; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Modal Content */
+.modal-content, modal-content2{	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+ 	align-items: center;
+	background-color: #dbcdbb;
+	margin: 10% auto; 
+	padding: 5vmin;
+	border: 1px solid #eee;
+	width: 80%; 	
+	font-family: 'Fredoka One', cursive;  
+	color: #4974a5;	
+	font-size: 4vmin;
+}
+
+.modal-content textarea, input {
+	width: 50vw;
+	border: none; 
+	background-color: #eee; 
+}
+
+.modal-content textarea:focus, input:focus {
+  outline: none;
+}
+
+.modal-btn{
+	display: block;
+  	margin: 0 auto;
+  	height: 8vmin;
+  	width: 20vmin;
+	background-color: transparent; 
+	border: 0.7vmin solid #98d797;
+	border-radius: 2vmin;
+ 	cursor: pointer;
+ 	font-family: 'Fredoka One', cursive;  
+ 	font-size: 3.5vmin;
+ 	font-weight: bold;	
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 8vmin;
+  font-weight: bold;
+ font-family: 'Fredoka One', cursive;  
+	
+}
+
+.close:hover,
+.close:focus {
+  color: #98d797;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.m-btn {
+	margin-top: 2vmin;
+	margin :auto;
+	background-color: #e2bfb9; 
+	border-radius: 2vmin;
+	border:solid 0.1vmin white;
+	font-family: 'Fredoka One', cursive;  
+	display: flex;
+	justify-content: space-evenly;
+	align-content: center;	
+	color: #4974a5;
+	height: 3vh;
+	width: 26vw;
+}
+
+#modal-trigger {
+  position: fixed;
+  bottom: 13vh;
+  right: 43vw;
+  z-index: 2;
+  
+  	height: 12vmin;
+  	width: 12vmin;
+	background-color: #f5f5f5; 
+	border: 0.6vmin solid #eee;
+	border-radius: 50%;
+ 	cursor: pointer;
+ 	display: flex;
+ 	justify-content: center;
+ 	align-items: center;
+}
+
+
+
+
